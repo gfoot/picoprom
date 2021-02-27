@@ -7,8 +7,8 @@ Warning
 -------
 The Raspberry Pi Pico is not 5V-tolerant, but these EEPROMs are 5V devices.
 This is fine for write-only access, but it's important to ensure the EEPROM
-never writes back to the Pico's GPIO pins.  Make sure OE is permanently wired
-high to prevent this.
+never writes back to the Pico's GPIO pins.  *Make sure OE is permanently wired
+high, to VCC, to prevent this.*
 
 Features
 --------
@@ -27,21 +27,26 @@ Not features
 
 Binary Installation
 -------------------
-1. Hold BOOTSEL and connect the Raspberry Pi Pico
+1. Without an EEPROM connected, hold BOOTSEL and connect the Raspberry Pi Pico
 2. Drag picoprom.uf2 into the Raspberry Pi Pico's mass storage window
 3. It should then reboot and start communicating over USB Serial
 
 Usage
 -----
-1. Wire the Raspberry Pi Pico up to the EEPROM according to the pinout table below
-2. Connect the Raspberry Pi Pico to the computer by USB
-3. Launch a terminal app with XMODEM support, such as Tera Term, and connect it to the Raspberry Pi Pico
-4. Verify that the Raspberry Pi Pico is reporting that it's ready to receive a ROM image - it will generally print a lot of letter C characters if it's ready
-5. Use your terminal to send a ROM image using the XMODEM+CRC protocol
+1. Disconnect the Raspberry Pi Pico from power/USB
+2. Wire the Raspberry Pi Pico up to the EEPROM according to the pinout table below
+3. Connect the Raspberry Pi Pico to the computer by USB
+4. Launch a terminal app with XMODEM support, such as Tera Term, and connect it to the Raspberry Pi Pico
+5. Verify that the Raspberry Pi Pico is reporting that it's ready to receive a ROM image - it will generally print occasional letter `C` characters if it's ready
+6. Use your terminal to send a ROM image using the XMODEM+CRC protocol
+7. Disconnect power before removing the EEPROM from the circuit
 
 Pinout
 ------
-The pinout is quite straightforward.
+The pinout is quite straightforward - the pins are laid out around the Pico in almost 
+the same arrangement that they appear on the EEPROM, to make it easy and tidy to wire up.
+
+*Make sure OE is connected high, to VCC, as allowing it to float low could cause damage to your Pico.*
 
 | Pico pin | EEPROM pin | Function |
 | -------- |:----------:| -------- |
@@ -75,6 +80,15 @@ The pinout is quite straightforward.
 | VBUS     | 22 | OE     |
 | GND      | 14 | GND    |
 | GND      | 27 | WE     |
+
+### Other options
+
+Depending upon preference, you could swap the CE and WE connections, or connect
+them both to GP21.  It doesn't make any difference to the programming
+operation, I just chose this layout because it seemed most convenient to me.
+
+If you go further and change the GP pin numbering then you'll need to update
+the corresponding array in `picoprom.c`.
 
 Cloning and Building from Source
 --------------------------------
