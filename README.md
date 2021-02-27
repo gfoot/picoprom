@@ -1,7 +1,7 @@
 PicoPROM - DIP-EEPROM Programmer based on Raspberry Pi Pico
 ===========================================================
 
-Writes ROM images to EEPROMs via XMODEM file transfer over USB.
+Writes ROM images to parallel-interface EEPROMs via XMODEM file transfer over USB.
 
 Warning
 -------
@@ -13,28 +13,29 @@ high to prevent this.
 Features
 --------
 
-* No additional components required - just the Pico and the EEPROM
+* No additional components are required - just the Pico and the EEPROM
+* XMODEM+CRC transfer protocol makes it easy to send files to be written to the EEPROM
 * Fast operation - comparable to TL866
 * Supports paged writes as well as byte-writes
 * Supports write protection
-* XMODEM+CRC transfer protocol makes it easy to send files to be written to the EEPROM
 
 Not features
 ------------
-* Reading back and verifying is not supported
-* Configuration can't be changed at runtime, needs to be set in code
-* YMODEM, ZMODEM, and other XMODEM extensions aren't supported
+* Reading back and verifying is not supported and probably won't ever be
+* Configuration can't be changed at runtime yet, it needs to be set in code
+* YMODEM, ZMODEM, and other XMODEM extensions aren't supported yet
 
 Binary Installation
 -------------------
 1. Hold BOOTSEL and connect the Raspberry Pi Pico
 2. Drag picoprom.uf2 into the Raspberry Pi Pico's mass storage window
+3. It should then reboot and start communicating over USB Serial
 
 Usage
 -----
 1. Wire the Raspberry Pi Pico up to the EEPROM according to the pinout table below
-2. Connect the Raspberry Pi Pico by USB
-3. Launch a decent terminal with XMODEM support, such as Tera Term, and connect it to the Raspberry Pi Pico
+2. Connect the Raspberry Pi Pico to the computer by USB
+3. Launch a terminal app with XMODEM support, such as Tera Term, and connect it to the Raspberry Pi Pico
 4. Verify that the Raspberry Pi Pico is reporting that it's ready to receive a ROM image - it will generally print a lot of letter C characters if it's ready
 5. Use your terminal to send a ROM image using the XMODEM+CRC protocol
 
