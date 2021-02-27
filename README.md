@@ -43,7 +43,7 @@ Pinout
 The pinout is quite straightforward.
 
 | Pico pin | EEPROM pin | Function |
-| -------- | ---------- | -------- |
+| -------- |:----------:| -------- |
 | GP2      | 26 | A13    |
 | GP3      | 1  | A14    |
 | GP4      | 2  | A12    |
@@ -77,9 +77,9 @@ The pinout is quite straightforward.
 
 Cloning and Building from Source
 --------------------------------
-1. Set up pico-sdk according to the Pico's getting-started guide.
-2. Clone this repository alongside the pico-sdk
-3. Create a "build" folder
-4. From within the build folder, type: cmake ..
-5. From within the build folder, type: make
+1. Set up `pico-sdk` according to the Pico's getting-started guide.
+2. Clone this repository alongside `pico-sdk`
+3. Create a `build` folder
+4. From within the `build` folder, type: `cmake ..`
+5. From within the `build` folder, type: `make`
 
