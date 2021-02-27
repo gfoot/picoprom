@@ -43,7 +43,7 @@ Pinout
 The pinout is quite straightforward.
 
 | Pico pin | EEPROM pin |
-|          |            |
+| -------- | ---------- |
 | GP2      | 26  A13    |
 | GP3      | 1   A14    |
 | GP4      | 2   A12    |
