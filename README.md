@@ -7,8 +7,8 @@ Warning
 -------
 The Raspberry Pi Pico is not 5V-tolerant, but these EEPROMs are 5V devices.
 This is fine for write-only access, but it's important to ensure the EEPROM
-never writes back to the Pico's GPIO pins.  _Make sure OE is permanently wired
-high, to VCC, to prevent this._
+never writes back to the Pico's GPIO pins.  **Make sure OE is permanently wired
+high, to VCC, to prevent this.**
 
 Features
 --------
@@ -46,7 +46,7 @@ Pinout
 The pinout is quite straightforward - the pins are laid out around the Pico in almost 
 the same arrangement that they appear on the EEPROM, to make it easy and tidy to wire up.
 
-_Make sure OE is connected high, to VCC, as allowing it to float low could cause damage to your Pico._
+**Make sure OE is connected high, to VCC, as allowing it to float low could cause damage to your Pico.**
 
 | Pico pin | EEPROM pin | Function |
 | -------- |:----------:| -------- |
