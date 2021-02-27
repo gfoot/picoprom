@@ -85,7 +85,7 @@ void writeImage(const uint8_t* buffer, size_t size)
 
 	if (size > gConfig.size) size = gConfig.size;
 
-	int prevAddress = -1;
+	int prevAddress = 0xffffff;
 	for (int address = 0; address < size; ++address)
 	{
 		if (gConfig.pageSize && prevAddress / gConfig.pageSize != address / gConfig.pageSize)
@@ -158,9 +158,9 @@ int main()
 	while (true)
 	{
 		printf("\n\n");
-		printf("PicoPROM v0.1 - Raspberry Pi Pico DIP-EEPROM programmer\n");
-		printf("                by George Foot, February 2021\n");
-		printf("                https://github.com/gfoot/picoprom\n");
+		printf("PicoPROM v0.11 - Raspberry Pi Pico DIP-EEPROM programmer\n");
+		printf("                 by George Foot, February 2021\n");
+		printf("                 https://github.com/gfoot/picoprom\n");
 		printf("\n\n");
 		printf("EEPROM Device: AT28C256\n");
 		printf("        Capacity: %dK bytes\n", gConfig.size / 1024);
