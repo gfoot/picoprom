@@ -42,38 +42,38 @@ Pinout
 ------
 The pinout is quite straightforward.
 
-| Pico pin | EEPROM pin |
-| -------- | ---------- |
-| GP2      | 26  A13    |
-| GP3      | 1   A14    |
-| GP4      | 2   A12    |
-| GP5      | 3   A7     |
-| GP6      | 4   A6     |
-| GP7      | 5   A5     |
-| GP8      | 6   A4     |
-| GP9      | 7   A3     |
-| GP10     | 8   A2     |
-| GP11     | 9   A1     |
-| GP12     | 10  A0     |
-| GP13     | 11  D0     |
-| GP14     | 12  D1     |
-| GP15     | 13  D2     |
-|          |            |
-| GP16     | 15  D3     |
-| GP17     | 16  D4     |
-| GP18     | 17  D5     |
-| GP19     | 18  D6     |
-| GP20     | 19  D7     |
-| GP21     | 20  CE     |
-| GP22     | 21  A10    |
-| GP26     | 23  A11    |
-| GP27     | 24  A9     |
-| GP28     | 25  A8     |
-|          |            |
-| VBUS     | 28  VCC    |
-| VBUS     | 22  OE     |
-| GND      | 14  GND    |
-| GND      | 27  WE     |
+| Pico pin | EEPROM pin | Function |
+| -------- | ---------- | -------- |
+| GP2      | 26 | A13    |
+| GP3      | 1  | A14    |
+| GP4      | 2  | A12    |
+| GP5      | 3  | A7     |
+| GP6      | 4  | A6     |
+| GP7      | 5  | A5     |
+| GP8      | 6  | A4     |
+| GP9      | 7  | A3     |
+| GP10     | 8  | A2     |
+| GP11     | 9  | A1     |
+| GP12     | 10 | A0     |
+| GP13     | 11 | D0     |
+| GP14     | 12 | D1     |
+| GP15     | 13 | D2     |
+|          |    |        |
+| GP16     | 15 | D3     |
+| GP17     | 16 | D4     |
+| GP18     | 17 | D5     |
+| GP19     | 18 | D6     |
+| GP20     | 19 | D7     |
+| GP21     | 20 | CE     |
+| GP22     | 21 | A10    |
+| GP26     | 23 | A11    |
+| GP27     | 24 | A9     |
+| GP28     | 25 | A8     |
+|          |    |        |
+| VBUS     | 28 | VCC    |
+| VBUS     | 22 | OE     |
+| GND      | 14 | GND    |
+| GND      | 27 | WE     |
 
 Cloning and Building from Source
 --------------------------------
