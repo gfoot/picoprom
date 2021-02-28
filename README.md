@@ -3,6 +3,10 @@ PicoPROM - DIP-EEPROM Programmer based on Raspberry Pi Pico
 
 Writes ROM images to parallel-interface EEPROMs via XMODEM file transfer over USB.
 
+| <img src="doc/picoprom_photo.jpg" alt="Pico and EEPROM connected together" width="320" height="180" border="10" /> | | <a href="http://www.youtube.com/watch?feature=player_embedded&v=Vp6lCNkH-zw" target="_blank"><img src="http://img.youtube.com/vi/Vp6lCNkH-zw/0.jpg" alt="Demo video on YouTube" width="240" height="180" border="10" /></a> |
+|:----:|----|:----:|
+| Pico connected to EEPROM | | Demo video on YouTube |
+
 Warning
 -------
 The Raspberry Pi Pico is not 5V-tolerant, but these EEPROMs are 5V devices.
