@@ -52,38 +52,23 @@ the same arrangement that they appear on the EEPROM, to make it easy and tidy to
 
 **Make sure OE is connected high, to VCC, as allowing it to float low could cause damage to your Pico.**
 
-| Pico pin | EEPROM pin | Function |
-| -------- |:----------:| -------- |
-| GP2      | 26 | A13    |
-| GP3      | 1  | A14    |
-| GP4      | 2  | A12    |
-| GP5      | 3  | A7     |
-| GP6      | 4  | A6     |
-| GP7      | 5  | A5     |
-| GP8      | 6  | A4     |
-| GP9      | 7  | A3     |
-| GP10     | 8  | A2     |
-| GP11     | 9  | A1     |
-| GP12     | 10 | A0     |
-| GP13     | 11 | D0     |
-| GP14     | 12 | D1     |
-| GP15     | 13 | D2     |
-|          |    |        |
-| GP16     | 15 | D3     |
-| GP17     | 16 | D4     |
-| GP18     | 17 | D5     |
-| GP19     | 18 | D6     |
-| GP20     | 19 | D7     |
-| GP21     | 20 | CE     |
-| GP22     | 21 | A10    |
-| GP26     | 23 | A11    |
-| GP27     | 24 | A9     |
-| GP28     | 25 | A8     |
-|          |    |        |
-| VBUS     | 28 | VCC    |
-| VBUS     | 22 | OE     |
-| GND      | 14 | GND    |
-| GND      | 27 | WE     |
+| Pico pin | EEPROM pin | Function |      | Pico pin | EEPROM pin | Function |
+| -------- |:----------:| -------- | ---- | -------- |:----------:| -------- |
+| GP3      | 1  | A14    | | VSYS     | 28 | VCC    |
+| GP4      | 2  | A12    | | GND      | 27 | WE     |
+| GP5      | 3  | A7     | | GP2      | 26 | A13    |
+| GP6      | 4  | A6     | | GP28     | 25 | A8     |
+| GP7      | 5  | A5     | | GP27     | 24 | A9     |
+| GP8      | 6  | A4     | | GP26     | 23 | A11    |
+| GP9      | 7  | A3     | | VSYS     | 22 | OE     |
+| GP10     | 8  | A2     | | GP22     | 21 | A10    |
+| GP11     | 9  | A1     | | GP21     | 20 | CE     |
+| GP12     | 10 | A0     | | GP20     | 19 | D7     |
+| GP13     | 11 | D0     | | GP19     | 18 | D6     |
+| GP14     | 12 | D1     | | GP18     | 17 | D5     |
+| GP15     | 13 | D2     | | GP17     | 16 | D4     |
+| GND      | 14 | GND    | | GP16     | 15 | D3     |
+
 
 ### Other options
 
