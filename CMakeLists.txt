@@ -10,6 +10,7 @@ pico_sdk_init()
 
 add_executable(picoprom
 	configs.c
+	eeprom.c
 	picoprom.c
 	xmodem.c
 )

@@ -52,11 +52,16 @@ void xmodem_set_config(xmodem_mode_t mode);
  *    outputBuffer: where to store the received data
  *    bufferSize:   maximum number of bytes to store in outputBuffer
  *    message:      an optional prompt to start the transfer
+ *    inputhandler: an optional function to handle unexpected input before the transfer
  *
  * If message is provided, it will be printed every few seconds until the 
  * first data is received.
+ *
+ * If inputhandler is provided, it will be called if unexpected input is received before
+ * the transfer begins.  The unexpected input character will be passed to the handler,
+ * which should return 'true' if it handled it.
  */
-int xmodem_receive(void* outputBuffer, size_t bufferSize, const char *message);
+int xmodem_receive(void* outputBuffer, size_t bufferSize, const char *message, bool (*inputhandler)());
 
 
 /* Dumps cached log data to stdout. */

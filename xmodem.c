@@ -83,7 +83,7 @@ void xmodem_set_config(xmodem_mode_t mode)
 }
 
 
-int xmodem_receive(void* outputBuffer, size_t bufferSize, const char* message)
+int xmodem_receive(void* outputBuffer, size_t bufferSize, const char* message, bool (*inputhandler)())
 {
 	char logBuffer[1024];
 	xmodem_clearlog();
@@ -130,6 +130,10 @@ int xmodem_receive(void* outputBuffer, size_t bufferSize, const char* message)
 				eof = (c == XMODEM_EOT);
 				can = (c == XMODEM_CAN);
 				break;
+			}
+			else if (inputhandler && inputhandler(c))
+			{
+				return -1;
 			}
 			else if (xmodem_config.logLevel >= 1)
 			{

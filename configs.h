@@ -3,10 +3,28 @@
 
 #pragma once
 
-#include "picoprom.h"
+#include <stdbool.h>
 
 
-extern picoprom_config_t gConfigs[];
+typedef struct
+{
+	const char *name;
+	int size;
+	int pageSize;
+	int pageDelayMs;
+	int pulseDelayUs;
+	int byteDelayUs;
+	bool writeProtect;
+	bool writeProtectDisable;
+} picoprom_config_t;
+
+
+extern picoprom_config_t gConfig;
+
+
+void init_settings();
+void show_settings();
+void change_settings();
 
 
 #endif
