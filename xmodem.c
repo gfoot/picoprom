@@ -109,7 +109,15 @@ int xmodem_receive(void* outputBuffer, size_t bufferSize, const char* message)
 
 				if (message) puts(message);
 				
-				putchar(xmodem_config.useCrc ? 'C' : XMODEM_NAK);
+				if (xmodem_config.useCrc)
+				{
+					putchar(8);
+					putchar('C');
+				}
+				else
+				{
+					putchar(XMODEM_NAK);
+				}
 
 				nextPrintTime = make_timeout_time_ms(3000);
 			}
