@@ -26,7 +26,6 @@ Features
 Not features
 ------------
 * Reading back and verifying is not supported and probably won't ever be
-* Configuration can't be changed at runtime yet, it needs to be set in code
 * YMODEM, ZMODEM, and other XMODEM extensions aren't supported yet
 
 Binary Installation
@@ -41,9 +40,11 @@ Usage
 2. Wire the Raspberry Pi Pico up to the EEPROM according to the pinout table below
 3. Connect the Raspberry Pi Pico to the computer by USB
 4. Launch a terminal app with XMODEM support, such as Tera Term, and connect it to the Raspberry Pi Pico
-5. Verify that the Raspberry Pi Pico is reporting that it's ready to receive a ROM image - it will generally print occasional letter `C` characters if it's ready
-6. Use your terminal to send a ROM image using the XMODEM+CRC protocol
-7. Disconnect power before removing the EEPROM from the circuit
+5. Verify that the Raspberry Pi Pico is reporting that it's ready to receive a ROM image
+7. Use your terminal to send a ROM image using the XMODEM+CRC protocol
+8. Disconnect power before removing the EEPROM from the circuit
+
+Alternatively, instead of starting the XMODEM transfer, press Enter for some configuration options and follow the instructions.
 
 Pinout
 ------
