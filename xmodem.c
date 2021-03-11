@@ -103,7 +103,7 @@ int xmodem_receive(void* outputBuffer, size_t bufferSize, const char* message, b
 		/* Receive next packet */
 		while (true)
 		{
-			if (sizeReceived == 0 && get_absolute_time() > nextPrintTime)
+			if (sizeReceived == 0 && absolute_time_diff_us(nextPrintTime, get_absolute_time()) > 0)
 			{
 				xmodem_dumplog();
 
@@ -184,7 +184,7 @@ int xmodem_receive(void* outputBuffer, size_t bufferSize, const char* message, b
 		int bufpos = 0;
 		while (bufpos < 2+XMODEM_BLOCKSIZE + (xmodem_config.useCrc ? 2 : 1) && !timeout)
 		{
-			if (get_absolute_time() > timeoutTime)
+			if (absolute_time_diff_us(timeoutTime, get_absolute_time()) > 0)
 			{
 				if (xmodem_config.logLevel >= 1) xmodem_log("Timeout");
 				timeout = true;

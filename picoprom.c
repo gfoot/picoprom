@@ -42,7 +42,7 @@ static void banner()
 	printf("\n\n");
 	printf("\n\n");
 
-	printf("PicoPROM v0.2    Raspberry Pi Pico DIP-EEPROM programmer\n");
+	printf("PicoPROM v0.21   Raspberry Pi Pico DIP-EEPROM programmer\n");
 	printf("                 by George Foot, February 2021\n");
 	printf("                 https://github.com/gfoot/picoprom\n");
 }
