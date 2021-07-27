@@ -14,6 +14,8 @@ typedef struct
 	int pageDelayMs;
 	int pulseDelayUs;
 	int byteDelayUs;
+	int i2cAddress;
+	bool i2c;
 	bool writeProtect;
 	bool writeProtectDisable;
 } picoprom_config_t;

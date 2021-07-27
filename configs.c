@@ -15,50 +15,56 @@ static picoprom_config_t gConfigs[] =
 	{
 		"AT28C256",
 		32768,
-		64, 10, 1, 0,
-		true, false
+		64, 10, 1, 0, 0,
+		false, true, false
 	},
 	{
 		"AT28C256F",
 		32768,
 		64, 3, 1, 0,
-		true, false
+		false, true, false
 	},
 	{
 		"AT28C64",
 		8192,
-		0, 10, 1, 1000,
-		false, false
+		0, 10, 1, 1000, 0,
+		false, false, false
 	},
 	{
 		"AT28C64B",
 		8192,
-		64, 10, 1, 0,
-		true, false
+		64, 10, 1, 0, 0,
+		false, true, false
 	},
 	{
 		"AT28C64E",
 		8192,
-		0, 10, 1, 200,
-		false, false
+		0, 10, 1, 200, 0,
+		false, false, false
 	},
 	{
 		"AT28C16",
 		2048,
-		0, 10, 1, 1000,
-		false, false
+		0, 10, 1, 1000, 0,
+		false, false, false
 	},
 	{
 		"AT28C16E",
 		2048,
-		0, 10, 1, 200,
-		false, false
+		0, 10, 1, 200, 0,
+		false, false, false
 	},
 	{
 		"M28C16",
 		2048,
-		64, 3, 1, 0,
-		true, false
+		64, 5, 1, 100, 0,
+		false, true, false
+	},
+	{
+		"AT24C04",
+		1024,
+		16, 3, 1, 0, 0x50,
+		true, true, false
 	},
 	{
 		NULL
@@ -133,7 +139,13 @@ static command_t gCommands[] =
 	{ 'p', "return to programming mode", NULL },
 	{ 0 }
 };
-
+uint8_t getKey(void) {     // hardware-independent wrapper
+    uint8_t ch_read;
+    do {
+        ch_read = getchar_timeout_us(18); // 4 tries per 87 uSec char window at 115200 bps
+    } while ((ch_read == '\0') || (ch_read == 0xff));
+    return ch_read;
+}
 
 void change_settings()
 {
@@ -157,7 +169,7 @@ void change_settings()
 		printf("\n");
 		printf("?");
 
-		int c = getchar();
+		int c = getKey();
 		for (int i = 0; gCommands[i].key; ++i)
 		{
 			if (c == gCommands[i].key)

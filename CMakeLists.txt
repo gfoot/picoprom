@@ -13,11 +13,12 @@ add_executable(picoprom
 	eeprom.c
 	picoprom.c
 	xmodem.c
+	i2c.c
 )
 
 pico_add_extra_outputs(picoprom)
 
-target_link_libraries(picoprom pico_stdlib)
+target_link_libraries(picoprom pico_stdlib hardware_i2c)
 
 pico_enable_stdio_usb(picoprom 1)
 pico_enable_stdio_uart(picoprom 0)
