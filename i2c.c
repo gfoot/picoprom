@@ -9,7 +9,7 @@
 #include "pico/binary_info.h"
 #include "pico/stdlib.h"
 
-#define RW 2
+#define RW 3
 
 
 static int i2c_writeByte(uint8_t word_address, uint8_t *data){

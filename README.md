@@ -75,8 +75,8 @@ the same arrangement that they appear on the EEPROM, to make it easy and tidy to
 | -------- |:----------:| -------- |
 | 3V3(OUT)      | 8  | VCC    | 
 | GP3      | 7  | RW    | 
-| GP4      | 6  | SCL    |
-| GP5      | 5  | SDA    |
+| GP4      | 5  | SDA    |
+| GP5      | 6  | SCL    |
 | GND      | 4  | GND    |
 ### Other options
 
