@@ -4,7 +4,7 @@
 #pragma once
 
 #include <stdbool.h>
-
+#include <stdio.h>
 
 typedef struct
 {
@@ -28,6 +28,7 @@ void init_settings();
 void show_settings();
 void change_settings();
 
+uint8_t getKey(void);
 
 #endif
 

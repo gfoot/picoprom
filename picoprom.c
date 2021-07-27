@@ -82,13 +82,16 @@ void loop()
 		if (!eepromOk)
 		{
 			printf("Device not connected.\n");
-
+			printf("Press any key and try again");
+			getKey();
 		}
 	}else{
 		eepromOk = eeprom_init();
 		if (!eepromOk)
 		{
 			printf("ERROR: no pin was mapped to Write Enable (ID 15)\n");
+			printf("Press any key and try again");
+			getKey();
 		}
 
 	}
