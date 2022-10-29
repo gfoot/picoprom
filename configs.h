@@ -4,7 +4,7 @@
 #pragma once
 
 #include <stdbool.h>
-
+#include <stdio.h>
 
 typedef struct
 {
@@ -14,6 +14,8 @@ typedef struct
 	int pageDelayMs;
 	int pulseDelayUs;
 	int byteDelayUs;
+	int i2cAddress;
+	bool i2c;
 	bool writeProtect;
 	bool writeProtectDisable;
 } picoprom_config_t;
@@ -26,6 +28,7 @@ void init_settings();
 void show_settings();
 void change_settings();
 
+uint8_t getKey(void);
 
 #endif
 

@@ -70,7 +70,14 @@ the same arrangement that they appear on the EEPROM, to make it easy and tidy to
 | GP15     | 13 | D2     | | GP17     | 16 | D4     |
 | GND      | 14 | GND    | | GP16     | 15 | D3     |
 
-
+**I2C pinout**
+| Pico pin | EEPROM pin | Function |
+| -------- |:----------:| -------- |
+| 3V3(OUT)      | 8  | VCC    | 
+| GP3      | 7  | RW    | 
+| GP4      | 5  | SDA    |
+| GP5      | 6  | SCL    |
+| GND      | 4  | GND    |
 ### Other options
 
 Depending upon preference, you could swap the CE and WE connections, or connect

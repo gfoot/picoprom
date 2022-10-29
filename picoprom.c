@@ -9,13 +9,13 @@
 #include "configs.h"
 #include "xmodem.h"
 #include "eeprom.h"
-
+#include "i2c.h"
 
 static bool setup()
 {
 	bi_decl(bi_program_description("PicoPROM - EEPROM programming tool"));
 
-	bool eepromOk = eeprom_init();
+
 
 	stdio_init_all();
 
@@ -23,11 +23,7 @@ static bool setup()
 	printf("\nUSB Serial connected\n");
 
 
-	if (!eepromOk)
-	{
-		printf("ERROR: no pin was mapped to Write Enable (ID 15)\n");
-		return false;
-	}
+
 
 
 	init_settings();
@@ -79,6 +75,27 @@ void loop()
 	char buffer[65536];
 	int sizeReceived = xmodem_receive(buffer, sizeof buffer, NULL, input_handler);
 
+
+	bool eepromOk = false;
+	if(gConfig.i2c){
+		eepromOk = i2c_eeprom_init();
+		if (!eepromOk)
+		{
+			printf("Device not connected.\n");
+			printf("Press any key and try again");
+			getKey();
+		}
+	}else{
+		eepromOk = eeprom_init();
+		if (!eepromOk)
+		{
+			printf("ERROR: no pin was mapped to Write Enable (ID 15)\n");
+			printf("Press any key and try again");
+			getKey();
+		}
+
+	}
+
 	if (sizeReceived < 0)
 	{
 		xmodem_dumplog();
@@ -102,7 +119,13 @@ void loop()
 	}
 
 	printf("Writing to EEPROM...\n");
-	eeprom_writeImage(buffer, sizeReceived);
+
+	if(gConfig.i2c){
+		i2c_eeprom_writeImage(buffer, sizeReceived);
+	}else{
+		eeprom_writeImage(buffer, sizeReceived);
+	}
+
 
 	printf("\n");
 	printf("Done\n");
@@ -111,6 +134,8 @@ void loop()
 
 int main()
 {
+
+	
 	if (!setup())
 		return -1;
 
